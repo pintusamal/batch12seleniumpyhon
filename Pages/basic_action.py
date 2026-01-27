@@ -78,4 +78,18 @@ class BasicActions:
         element = self.get_web_element(locator)
         action.double_click(element).perform()
 
+    def get_text(self, locator):
+        self.wait_for_object(locator)
+        element = self.get_web_element(locator)
+        return element.text
+
+    def get_all_locator_text(self, locator):
+        text = []
+        self.wait_for_object(locator)
+        elements = self.get_web_elements(locator)
+        for element in elements:
+            text.append(element.text)
+        return text
+
+
 
